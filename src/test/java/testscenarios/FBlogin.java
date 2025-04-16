@@ -9,7 +9,7 @@ public class FBlogin {
 	public static void main(String[] args) {
 
 		//Login to FB application
-//		0. Create an webdriver object
+//		0. Create a webdriver object
 		WebDriver driver;
 //		1. Open any browser
 		driver = new ChromeDriver();
