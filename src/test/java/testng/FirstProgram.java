@@ -11,7 +11,7 @@ public class FirstProgram {
   public void f() throws Exception {
 	  WebDriver driver;
 		driver = new ChromeDriver();
-		
+		System.out.println("hi");
 		// Hyperlink 2
 		driver.get("https://phptravels.com/demo/");
 		Thread.sleep(5000);
