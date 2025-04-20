@@ -19,7 +19,10 @@ public class XpathAssignment {
 		cntry2.selectByVisibleText("London");		
 		driver.findElement(By.xpath("//input[@value='Find Flights']")).click();	
 		
-
+// https://crontab.guru/
+		// Prepare the xpath for '(non-standard)' near to @weekly element next
+		
+		// (//*[text()='(non-standard)'])[4]
 	}
 
 }
