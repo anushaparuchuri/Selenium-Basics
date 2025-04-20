@@ -1,12 +1,13 @@
 package testscenarios;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class AssignmentToFillAllEditboxes {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
 		WebDriver driver;
 		driver = new ChromeDriver();
@@ -19,8 +20,19 @@ public class AssignmentToFillAllEditboxes {
 		driver.findElement(By.xpath("//*[@id=\"basicBootstrapForm\"]/div[4]/div/input")).sendKeys("9876543210");
 		driver.findElement(By.xpath("//*[@id=\"basicBootstrapForm\"]/div[5]/div/label[2]")).click();
 	    driver.findElement(By.xpath("//*[@id=\"checkbox2\"]")).click();
-		driver.findElement(By.xpath("//*[@id=\"msdd\"]")).sendKeys("English");
-		
+	  
+	    //scroll up	  
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();",
+				driver.findElement(By.xpath("//*[@id=\"msdd\"]")));
+		 Thread.sleep(1000);
+	    //combobox
+	    driver.findElement(By.xpath("//*[@id=\"msdd\"]")).click();
+	    Thread.sleep(1000);
+	    //Optional values
+	    driver.findElement(By.linkText("English")).click();
+	    driver.findElement(By.linkText("Hindi")).click();	    
+	    Thread.sleep(1000);
+	    driver.findElement(By.xpath("//*[@id=\"checkbox1\"]")).click();
 		
 		
 
