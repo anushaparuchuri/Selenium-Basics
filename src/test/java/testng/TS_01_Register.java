@@ -1,0 +1,94 @@
+package testng;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+public class TS_01_Register {
+
+	WebDriver driver;
+
+	public void verifyElementOnScreen(By locator) {
+		if (driver.findElements(locator).size() > 0) {
+			System.out.println(locator + " is displayed on current screen");
+		} else {
+			System.out.println(locator + " is NOT displayed on current screen");
+		}
+	}
+
+	@Test
+	public void tc_01() throws InterruptedException {
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://automationexercise.com/products");
+		Thread.sleep(3000);
+		// Check home page has displayed or not: verify All Products text has
+		// displayed/visible?
+//		if (driver.findElements(By.xpath("//*[text()='All Products']")).size() > 0) {
+//			System.out.println("products page successfully displayed without any errors");
+//			System.out.println("TC_01 Passed");
+//		} else {
+//			System.out.println("products page NOT displayed ****");
+//			System.out.println("TC_01 Failed");
+//		}
+
+		verifyElementOnScreen(By.xpath("//*[text()='All Products']"));
+
+		System.out.println("tc_01() passed");
+	}
+
+	@Test
+	public void tc_02() throws InterruptedException {
+		// 2. User clicks on Signup / Login menu
+		driver.findElement(By.xpath("//*[text()=' Signup / Login']")).click();
+		Thread.sleep(3000);
+		// 3. Check log in page has displayed
+//		if (driver.findElements(By.xpath("//*[text()='New User Signup!']")).size() > 0) {
+//			System.out.println("Signup / Login page successfully displayed without any errors");
+//			System.out.println("TC_02 Passed");
+//		} else {
+//			System.out.println("Signup / Login page NOT displayed ****");
+//			System.out.println("TC_02 Failed");
+//		}
+
+		verifyElementOnScreen(By.xpath("//*[text()='New User Signup!']"));
+		System.out.println("tc_02() passed");
+	}
+
+	@Test
+	public void tc_03_and_04() throws InterruptedException {
+		// Login to your account form: Email address editbox validation
+//		if (driver.findElements(By.xpath("(//*[@name='email'])[1]")).size() > 0) {
+//			System.out.println("Email address editbox displayed under Login to your account form");
+//			System.out.println("TC_03 Passed");
+//		} else {
+//			System.out.println("Email address editbox is NOT displayed under Login to your account form");
+//			System.out.println("TC_03 Failed");
+//		}
+		verifyElementOnScreen(By.xpath("(//*[@name='email'])[1]"));
+		verifyElementOnScreen(By.name("password"));
+		verifyElementOnScreen(By.xpath("//*[@data-qa='login-button']"));
+
+		verifyElementOnScreen(By.name("name"));
+		verifyElementOnScreen(By.xpath("(//*[@name='email'])[2]"));
+		verifyElementOnScreen(By.xpath("//*[@data-qa='signup-button']"));
+		System.out.println("tc_03 and 04 passed");
+	}
+
+	// Verify user will able to create an account
+	@Test
+	public void tc_05() throws InterruptedException {
+
+		driver.findElement(By.name("name")).sendKeys("Sreenivas");
+		driver.findElement(By.xpath("(//*[@name='email'])[2]")).sendKeys("Sreenivastest@yahho.com");
+		// Signup button click
+		driver.findElement(By.xpath("//*[@data-qa='signup-button']")).click();
+		Thread.sleep(1000);
+		System.out.println("tc_05() passed");
+
+		//Continue to design rest of fields
+	}
+
+}

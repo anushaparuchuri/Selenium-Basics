@@ -13,6 +13,7 @@ public class Fblogin {
 	@Test
 	public void f() throws Exception {
 		driver.get("https://www.facebook.com/");
+		driver.findElement(By.name("email")).clear();
 		driver.findElement(By.name("email")).sendKeys("AnushaTest@gmail.sdgsom");
 		driver.findElement(By.id("pass")).sendKeys("testsdgsdgdsg");
 		driver.findElement(By.name("login")).click();
