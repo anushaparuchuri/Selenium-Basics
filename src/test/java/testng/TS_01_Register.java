@@ -112,14 +112,9 @@ public class TS_01_Register {
 		driver.findElement(By.name("city")).sendKeys("Mesa");
 		driver.findElement(By.name("zipcode")).sendKeys("80004");
 		driver.findElement(By.name("mobile_number")).sendKeys("9876543210");
-		driver.findElement(By.xpath("//*[@id=\"form\"]/div/div/div/div/form/button")).click();
-		
+		driver.findElement(By.xpath("//*[@id=\"form\"]/div/div/div/div/form/button")).click();		
 		verifyElementOnScreen(By.xpath("//*[@id=\"form\"]/div/div/div/h2/b"));
-		
-		System.out.println("Account has been created successfully");
-		
-		
-		
+		System.out.println("Account has been created successfully");	
 
 	}
 

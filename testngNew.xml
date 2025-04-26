@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="AnushaSuite">
+  <test thread-count="5" name="AnushaTest">
+    <classes>
+      <class name="testng.FirstProgram"/>
+      <class name="testng.Fblogin"/>
+      <class name="testng.AnnotationsDemo1"/>
+      <class name="testng.Assignment12"/>
+      <class name="testng.AnnotationsDemo3"/>
+      <class name="testng.AnnotationsDemo2"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
