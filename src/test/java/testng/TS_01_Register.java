@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 public class TS_01_Register {
@@ -81,14 +82,45 @@ public class TS_01_Register {
 	@Test
 	public void tc_05() throws InterruptedException {
 
-		driver.findElement(By.name("name")).sendKeys("Sreenivas");
-		driver.findElement(By.xpath("(//*[@name='email'])[2]")).sendKeys("Sreenivastest@yahho.com");
+		driver.findElement(By.name("name")).sendKeys("Anusha");
+		driver.findElement(By.xpath("(//*[@name='email'])[2]")).sendKeys("Anushatest123@yahho.com");
 		// Signup button click
 		driver.findElement(By.xpath("//*[@data-qa='signup-button']")).click();
 		Thread.sleep(1000);
 		System.out.println("tc_05() passed");
 
-		//Continue to design rest of fields
+		// Continue to design rest of fields
+
+		// title radio button
+		driver.findElement(By.xpath("//*[@id='uniform-id_gender2']")).click();
+		driver.findElement(By.name("password")).sendKeys("Anusha123");
+		Select day = new Select(driver.findElement(By.name("days")));
+		day.selectByVisibleText("15");
+		Select month = new Select(driver.findElement(By.name("months")));
+		month.selectByVisibleText("August");
+		Select year = new Select(driver.findElement(By.name("years")));
+		year.selectByVisibleText("1947");
+		
+		driver.findElement(By.name("newsletter")).click();
+		driver.findElement(By.name("optin")).click();
+		driver.findElement(By.name("first_name")).sendKeys("Anusha");
+		driver.findElement(By.name("last_name")).sendKeys("Anu");
+		driver.findElement(By.name("address1")).sendKeys("1012 W dr 80004");
+		Select cntry = new Select(driver.findElement(By.name("country")));
+		cntry.selectByVisibleText("United States");
+		driver.findElement(By.name("state")).sendKeys("AZ");
+		driver.findElement(By.name("city")).sendKeys("Mesa");
+		driver.findElement(By.name("zipcode")).sendKeys("80004");
+		driver.findElement(By.name("mobile_number")).sendKeys("9876543210");
+		driver.findElement(By.xpath("//*[@id=\"form\"]/div/div/div/div/form/button")).click();
+		
+		verifyElementOnScreen(By.xpath("//*[@id=\"form\"]/div/div/div/h2/b"));
+		
+		System.out.println("Account has been created successfully");
+		
+		
+		
+
 	}
 
 }

@@ -5,7 +5,7 @@
     <classes>
       <class name="testng.TS_01_Register">
         <methods>
-          <include name="tc_02"/>
+          <include name="tc_05"/>
         </methods>
       </class> <!-- testng.TS_01_Register -->
     </classes>
